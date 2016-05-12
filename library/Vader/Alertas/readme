@@ -1,0 +1,10 @@
+  <!-- Unica coisa que voce precisa colocar é isto! -->
+      <script src="/library/Vader/Alertas/alerts/dist/sweetalert-dev.js"></script>
+      <link rel="stylesheet" href="/library/Vader/Alertas/alerts/dist/sweetalert.css">
+
+      <?php if(!empty($this->alertsVader)) {?>
+        <script language=javascript>
+          <?php echo $this->alertsVader; ?>
+        </script>
+      <?php } ?>
+  <!--.......................-->
