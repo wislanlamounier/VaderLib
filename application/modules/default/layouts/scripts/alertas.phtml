@@ -1,0 +1,11 @@
+<?php if(!empty($this->msg)){ ?>
+  <script language=javascript>
+  <?php echo $this->msg[1]; ?>('<?php echo $this->msg[0] ?>');
+  </script>
+<?php } ?>
+
+<?php if(!empty($this->alertsVader)) {?>
+  <script language=javascript>
+    <?php echo $this->alertsVader; ?>
+  </script>
+<?php } ?>

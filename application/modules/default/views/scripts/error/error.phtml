@@ -1,0 +1,59 @@
+<style>
+  /*
+*
+* Style error of preytext
+* Copyright 2014, @mrjopino
+*
+*/
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Finger+Paint);
+body {
+    background: -webkit-linear-gradient(left,#eff0f4, #f5f1e8, #eff0f4);
+  background: -moz-linear-gradient(right,#eff0f4, #f5f1e8, #eff0f4);
+  background: -ms-linear-gradient(right,#eff0f4, #f5f1e8, #eff0f4);
+  background: -o-linear-gradient(right,#eff0f4, #f5f1e8, #eff0f4);
+  background: linear-gradient(to right,#eff0f4, #f5f1e8, #eff0f4);
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font: 7em "Finger Paint", sans-serif;
+  color: #333;
+}
+
+.logo_mrjopino {
+  position: relative;
+  margin: 2% auto;
+  width: 13em;
+  height: 13em;
+  background: url(http://mrjopino.com/logo.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 30em) and (max-width : 40em) {
+  .logo_mrjopino {
+    width: 10em;
+    height: 10em;
+}
+  h1 {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 32em) {
+   .logo_mrjopino {
+    width: 7em;
+    height: 7em;
+}
+   h1 {
+    font-size: 3em;
+  }
+}
+</style>
+<div class="logo_mrjopino"></div>
+<h1>Error 500</h1>

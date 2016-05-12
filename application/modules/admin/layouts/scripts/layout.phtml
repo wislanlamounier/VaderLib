@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content="Conselho de presidentes contribuíndo para um mundo melhor" />
+    <meta name="keywords" content="Conselho, Presidentes, Aconselhamento, Lideres, Estratégias, Brasil"/>
+    <meta name="author" content="Mobilus Tecnologia" />
+    <link rel="shortcut icon" href="/img/bottom-logo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <title>CP -  Admin &copy;</title>
+
+    <!-- DropDown Personalizado -->
+    <link rel="stylesheet" href="/admincss/dropdown.css">
+    
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link href="/admincss/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Kuta -->		
+    <link href="/admincss/css/styles.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="library/bootstrap/assets/js/html5shiv.js"></script>
+    <script src="library/bootstrap/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Alertify CSS -->
+    <link href="/css/alertify/alertify.core.css" rel="stylesheet">
+    <link href="/css/alertify/alertify.default.css" rel="stylesheet">
+
+    <!-- Notifications JS -->
+    <script src="/js/alertify/alertify.js"></script>
+    <script src="/js/alertify/alertify-custom.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins and alerts) -->
+    <script src="/js/jquery.js"></script>
+  </head>
+  <body>
+
+    <div id="main_wrapper">
+      <div id="main_content">
+
+        <!-- page heading -->
+        <?php $this->render('topo.phtml'); ?>
+        <!-- ./ page heading -->
+
+        <!-- contents -->
+        <?php echo $this->layout()->content; ?>
+        <!-- ./ contents -->				
+      </div>
+
+      <!-- sidebar -->
+      <?php echo $this->render('left.phtml'); ?>
+      <!-- ./ sidebar -->
+      
+      <?php echo $this->render('footer.phtml'); ?>
+    </div>
+
+
+  </body>
+</html>

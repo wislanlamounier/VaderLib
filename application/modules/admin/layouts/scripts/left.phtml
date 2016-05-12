@@ -1,0 +1,49 @@
+<!-- sidebar -->
+			<ul id="sidebar" class="nav nav-pills nav-stacked">
+				<li class="avatar">
+					<a href="/admin/index">
+						<img src="/img/btn-bg.png">
+                        <span>CP <i class="fa fa-line-chart"></i></span>
+					</a>
+				</li>
+				<li <?php if($this->url(array($this->next)) == '/admin'){echo 'class="active"';} ?>>
+					<a href="/admin/index">
+						<i class="icon-home-3"></i>
+						<span>Página inicial</span>
+					</a>
+				</li>
+                
+				<li class="dropdown <?php if(strpos($this->url(array($this->next)), '/admin/usuario') !== false){echo 'active';} ?>">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-user"></i>
+						<span>Usuarios</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/admin/usuario/inserir">
+								<i class="fa fa-plus"></i> Adicionar
+							</a>
+						</li>
+						<li>
+							<a href="/admin/usuario">
+								<i class="fa fa-eye"></i> Listar
+							</a>
+						</li>
+					</ul>
+				</li>
+                
+                <li class="dropdown <?php if(strpos($this->url(array($this->next)), '/admin/agenda') !== false){echo 'active';} ?>">
+					<a href="/admin/agenda" class="dropdown-toggle">
+						<i class="fa fa-calendar"></i>
+						<span>Agenda</span>
+					</a>
+				</li>
+                
+                <li class="dropdown <?php if(strpos($this->url(array($this->next)), '/admin/mensagens') !== false){echo 'active';} ?>">
+					<a href="/admin/mensagens" class="dropdown-toggle">
+						<i class="fa fa-newspaper-o"></i>
+						<span>Mensagens</span>
+					</a>
+				</li>
+			</ul>
+			<!-- ./ sidebar -->

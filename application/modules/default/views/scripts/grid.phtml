@@ -1,0 +1,39 @@
+<style>
+  .descricao
+  {
+    background-color: transparent;
+    width:100%;
+    max-width: 500px;
+    height:50px;
+    overflow: auto; 
+    border: 0 inset #cccacc;
+    padding-left: 10px;
+  }
+</style>
+<div class="panel">
+  <div class="row">
+  <?php if($this->inserir){ ?>
+    <div class="col-md-2">
+      <a href="<?php echo $this->inserir; ?>" class="btn button okay" style="height: 50px; width: 50%">
+        <i class="fa fa-plus"></i>
+        <span></span>
+      </a>
+    </div>
+  <?php } ?>
+  
+    
+  <?php if($this->Pesquisa != 1){ ?>
+    <form action="" method="GET" style="float: right; margin-top: 20px;">
+      <div class="" style="width: 92%;">
+        <p><input value="<?php echo $this->msg[2]['p_pesquisa'] ?>" style="height: 49px;" type="text" autocomplete='off' class="form-control input-lg" placeholder="Pesquisa" name="p_pesquisa" /></p>
+      </div>
+    </form>
+  <?php } ?>
+  </div>
+    
+  <div class="row" style="margin-top: -10px;">
+    <div class="panel-body">
+      <?php echo $this->gridDeployed; ?>
+    </div>
+  </div>
+</div>

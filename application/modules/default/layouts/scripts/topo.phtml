@@ -1,0 +1,91 @@
+<style>
+  .navbar-default .navbar-nav > li >a
+  {
+    color: white;
+  }
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form
+  {
+    color: white;
+    background-color: #F88438;!important;
+  }
+  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+  {
+    color: white;
+    background-color: #B8622A;!important;
+  }
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+  {
+    color: white;
+    background-color: #78563F;!important;
+  }
+  .navbar-success
+  {
+    color: white;
+    background-color: #F88438;!important;
+  }
+</style>
+<?php $session = Zend_Registry::get('session'); ?>
+<div role="navigation" class="navbar navbar-default navbar-success">
+  <div>
+    <div class="navbar-header">
+      <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <!-- PAGINA INICIAL -->
+        <li id="index"><a href="/index"><span class="fa fa-home"></span>Página inicial</a></li>
+        <li id="usuario"><a href="/usuario"><span class="fa fa-user"></span>Usuários</a></li>
+        <li id="categoria"><a href="/categoria"><span class="fa fa-television"></span>categoria</a></li>
+        <li id="profissional"><a href="/profissional"><span class="fa fa-suitcase"></span>Profissional</a></li>
+        <li id="cliente"><a href="/cliente"><span class="fa fa-calendar"></span>Cliente</a></li>
+        <li id="pedido"><a href="/pedido"><span class="fa fa-newspaper-o"></span>Pedido</a></li>
+        <li id="proposta"><a href="/proposta"><span class="fa fa-file-o"></span>Proposta</a></li>
+<!--        <li id="loja"><a href="/loja"><span class="fa fa-user"></span>Loja</a></li>-->
+<!--        <li id="usuario"><a href="/usuario"><span class="fa fa-user"></span>Usuários</a></li>-->
+<!--        <li id="cidades"><a href="/cidades"><span class="fa fa-newspaper-o"></span>Cidades</a></li>
+        <li id="propaganda"><a href="/propaganda"><span class="fa fa-newspaper-o"></span>Propaganda</a></li>-->
+<!--        <li id="palestrante" class=""><a href="/palestrante"><span class="fa fa-briefcase"></span>Palestrantes</a></li>
+        <li id="usuario"><a href="/usuario"><span class="fa fa-user"></span>Usuários</a></li>
+        <li id="circuito"><a href="/circuito"><span class="fa fa-calendar"></span>Circuito</a></li>
+        <li id="noticias"><a href="/noticias"><span class="fa fa-newspaper-o"></span>Notícias</a></li>-->
+        <!--<li class="<?php if(strpos($this->url(array($this->next)), '/questionario') !== false){echo 'active';} ?>"><a href="/questionario"><span class="fa fa-question-circle"></span>Avaliações</a></li>-->
+<!--        <li><a href="/usuario"><span style="color: white" class="fa fa-users"></span>Usuarios: <span id="total-usuarios">0</span> </a></li>-->
+<!--        <li><a href="/tickets"><span style="color: white" class="fa fa-ticket"></span>Tickets: <span id="total-tickets">0</span> </a></li>-->
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="/index/logout"><span class="fa fa-sign-out"></span>Sair</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.navbar-collapse -->
+</div>
+<script>
+  $(document).ready(function() {
+    $("#total-usuarios").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+    $("#total-tickets").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+
+    Funcao = retornoAjax;
+    URLAjax = '/relatorios/getusuarios';
+    Method = 'GET';
+    data = '';
+    AjaxGenerico(Funcao, URLAjax, Method, data);
+    
+  });
+  
+  function retornoAjax(result)
+  {
+    $('#total-usuarios').html(result.Result);
+    $('#total-tickets').html(result.TotalTickets);
+  }
+  
+  
+  pathname = window.location.pathname.split("/");
+  if(pathname[1] == "")
+    $('#index').addClass('active');
+  
+  $('#'+pathname[1]).addClass('active');
+</script>

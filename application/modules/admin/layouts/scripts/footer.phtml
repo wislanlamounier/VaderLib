@@ -1,0 +1,127 @@
+<!-- base -->
+<script src="/admincss/js/jquery.js"></script>
+<script src="/admincss/js/jquery-migrate-1.2.1.js"></script>
+<script src="/admincss/bootstrap/dist/js/bootstrap.min.js"></script>	
+
+<!-- addons -->
+<script src="/admincss/plugins/moment.min.js"></script>
+<script src="/admincss/plugins/chart-plugins.js"></script>
+<script src="/admincss/plugins/redactor/redactor.min.js"></script>
+<script src="/admincss/plugins/jquery.nice-file-input.js"></script>
+<script src="/admincss/plugins/selectize.min.js"></script>
+<script src="/admincss/plugins/jquery.icheck.min.js"></script>
+<script src="/admincss/plugins/ion.rangeSlider.min.js"></script>
+<script src="/admincss/plugins/pikaday.js"></script>
+<script src="/admincss/plugins/pikaday.jquery.js"></script>
+<script src="/admincss/js/loader.js"></script>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+   $("#Mensagens").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+   $("#Membros").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+   $("#Perguntas").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+   $("#Respostas").html("<i class='fa fa-spinner fa-spin fa-1x'></i>");
+   event.preventDefault();
+  $.ajax({
+   url: "/ajax/gettabelas",
+   type: 'GET',
+   context: jQuery('#resultado'),
+   success: function(data)
+   {
+     $("#Mensagens").html(data.Mensagens );
+     $("#Membros").html(data.Membros);
+     $("#Perguntas").html(data.Perguntas);
+     $("#Respostas").html(data.Respostas);
+   }
+  });
+ });
+ 
+ $(document).ready(function(){
+ $("#estado").change(function(event) {
+  event.preventDefault();
+  $.ajax({
+   url: "/estado/getpaisbyid",
+   type: 'POST',
+   context: jQuery('#resultado'),
+   data: 'valor=' +$("#estado").val(),
+   success: function(data)
+   { 
+   this.append(data);
+   $.each(data, function( index, value) 
+   {
+     $('#pais').append
+    (
+      $('<option>', {value: value.PaisID, text : value.Nome})
+    )
+    });
+   }
+  });
+ }); 
+ 
+  $("#estilo").change(function(event) {
+  event.preventDefault();
+  $.ajax({
+   url: "/estilo/getestilobyid",
+   type: 'POST',
+   context: jQuery('#resultado'),
+   data: 'valor=' +$("#estilo").val(),
+   success: function(data)
+   {
+   this.append(data);
+   $.each(data, function( index, value) 
+   {
+     $('#copo').append
+    (
+      $('<option>', {value: value.EstiloID, text : value.Copo, selected: true})
+    )
+    });
+   }
+  });
+ });
+ 
+});
+
+function Apenas_Numeros(caracter)
+{
+  var nTecla = 0;
+  if (document.all) {
+	  nTecla = caracter.keyCode;
+  } else {
+	  nTecla = caracter.which;
+  }
+  if ((nTecla> 47 && nTecla <58)
+  || nTecla == 8 || nTecla == 127
+  || nTecla == 0 || nTecla == 9  // 0 == Tab
+  || nTecla == 13) { // 13 == Enter
+	  return true;
+  } else {
+	  return false;
+  }
+}
+
+function fone(obj,prox) {
+switch (obj.value.length) {
+	case 1:
+		obj.value = "(" + obj.value;
+		break;
+	case 3:
+		obj.value = obj.value + ") ";
+		break;	
+	case 9:
+		obj.value = obj.value + "-";
+		break;	
+	case 14:
+		prox.focus();
+		break;
+}
+}
+
+function cep(obj,prox) {
+switch (obj.value.length) {
+	case 5:
+		obj.value = obj.value + "-" ;
+		break;
+}
+}
+ 
+</script>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/imagens/im_16x16.ico">
+    <title><?php echo $this->baseName; ?></title>
+    <!-- #CSS Links -->
+    <!-- Basic Styles -->
+    
+    <link rel="stylesheet" type="text/css" href="/jquery-ui/jquery-ui.structure.css"/>
+    <link rel="stylesheet" type="text/css" href="/jquery-ui/jquery-ui.min.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.css"/>
+    <link href="/plugins/iCheck-master/skins/all.css?v=1.0.2" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link type="text/css" href="/chosen/chosen.css" rel="stylesheet" />
+    
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <!-- #GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+    <!-- #CSS Links -->
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/complemento/custom.css"/>
+
+    <!-- #CSS Plugins Links -->
+    <!-- iCheck Checkbox and radio -->
+    <link href="/plugins/iCheck-master/skins/all.css?v=1.0.2" rel="stylesheet">
+    <!-- jasny-bootstrap -->
+    <link href="/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-switch -->
+    <link href="/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet">
+    <!-- bootstrap-multiselect -->
+    <link href="/plugins/bootstrap-multiselect-master/css/bootstrap-multiselect.css" rel="stylesheet">
+    <link href="/plugins/bootstrap-multiselect-master/css/prettify.css" rel="stylesheet">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/plugins/fuelux/css/fuelux.min.css" />
+    <!-- Data Slider -->
+    <link rel="stylesheet" href="/plugins/slider/css/slider.css">
+    
+    <!-- bootstrap-datetimepicker -->
+    <link rel="stylesheet" href="/plugins/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/plugins/bootstrap-daterangepicker-master/css/daterangepicker-bs3.css">
+    
+    <!-- Alertify CSS -->
+    <link href="/css/alertify/alertify.core.css" rel="stylesheet">
+    <link href="/css/alertify/alertify.default.css" rel="stylesheet">
+
+    <script src="/library/Vader/Alertas/alerts/dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="/library/Vader/Alertas/alerts/dist/sweetalert.css">
+    
+    <!-- Notifications JS -->
+    <script src="/js/alertify/alertify.js"></script>
+    <script src="/js/alertify/alertify-custom.js"></script>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins and alerts) -->
+    <script src="/js/jquery.js"></script>
+    
+    <!-- Fontes do http://fortawesome.github.io/Font-Awesome/icons/ -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <!-- CSS PARA O GRID DO ZEND -->
+    <link href="/css/grid.css" rel="stylesheet">
+    
+    <!-- Ajax para facilitar sua vida! ou nao -->
+    <script src="/js/Ajaxa.js"></script>
+    <script src="/plugins/maskedinput/js/jquery.maskedinput.min.js" type="text/javascript"></script>
+    
+    <!-- css modificados pelo programador pode ajudar voce, ou não -->
+    <link rel="stylesheet" type="text/css" href="/css/modificado.css"/>
+    
+    <!-- css modificados para o selects bonitinhos pode ajudar voce, ou não -->
+    <script type="text/javascript" src="/chosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="/chosen/docsupport/prism.js"></script>
+    <script type="text/javascript" src="/jquery-ui/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="/jquery-ui/maskMoney.js"></script>
+  </head>
+
+  <!--
+
+   TABLE OF CONTENTS.
+   
+   Use search to find needed section.
+   
+   ===================================================================
+   
+   |  01. #CSS Links                |  all CSS links and file paths  |
+   |  02. #GOOGLE FONT              |  Google font link              |
+   |  03. #BODY                     |  body tag                      |
+   |  04. #THEMETOP                 |  Theme top Secton              |
+   |  05. #NAVBAR                   |  Menu navigation               |
+   |  06. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
+   |  07. #Typography               |  Typography                    |
+   |  08. #Modal toolip popover     |  Modal toolip popover          |
+   |  09. #Forms Elements           |  Forms Elements                |
+   |  10. #Buttons styles           |  Different Buttons style       |
+   |  11. #NAVS                     |  Tabs accordion pills          |
+   |  12. #INDICATORS               |  2 Different indicators        |
+   |  13. #TABLES                   |  Different tables              |
+   |  14. #CONTAINERS               |  Containers for elements       |
+   |  15. #GALLERY ITEMS            |  Sliders and images            |
+   |  16. #JS Links                 |  all scripts and plugins       |
+   
+   ===================================================================
+   
+  -->
+
+  <style>
+      ::-webkit-scrollbar 
+      {
+        background: #404131;
+      }
+      /* barra de rolagem toda */ 
+      ::-webkit-scrollbar-thumb 
+      {
+        background: #404131;
+      } 
+      /* parte da barra que se movimenta */ 
+      ::-webkit-scrollbar-button
+      {
+        height: 10px;
+        background:#404131; 
+        border-radius: 0px 0px 0px 0px;
+        -moz-border-radius: 0px 0px 0px 0px;
+        -webkit-border-radius: 0px 0px 0px 0px;
+        border: 1px solid #404131;;
+      } /* ponta da barra de rolagem */ 
+      ::-webkit-scrollbar-track
+      {
+        background:#ffffff;
+      } /* fundo da barra de rolagem, parte fixa */ 
+      ::-webkit-scrollbar-track-piece
+      {
+        background:#FFFFFF;
+      } /* fundo da barra de rolagem, parte que ainda falta rolar */ 
+      ::-webkit-scrollbar-corner 
+      {
+        background:#e8ec9d;
+      } /* canto inferior direito da barra de rolagem */
+      ::-webkit-scrollbar
+      {
+        width: 4px;
+      }
+      ::-webkit-scrollbar:horizontal
+      {
+        height: 5px
+      }
+    </style>
+  
+  <!-- #BODY -->
+  <body style="
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  background:#615f64;
+  background-size: 100%;
+  font-weight: 300;
+  font-size: 15px;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  ">
+    
+
+  
+    <?php $session = Zend_Registry::get('session');
+    if($this->Loguin == 1){echo $this->render('topo.phtml');} ?>
+    <div id="wrapper">
+      
+        <!-- #THEMETOP -->
+          <?php 
+          echo $this->render('alertas.phtml');
+          if($this->SemPermissao == 1)
+          {
+            echo $this->render('login.phtml');
+          } 
+          else
+          { ?>
+            <div class='col-md-12'>
+                <?php echo $this->layout()->content; ?>
+            </div>
+          <?php
+          }
+          ?>
+      
+    </div>
+        <?php echo $this->render('footer.phtml'); ?>
+
+    
+    
+  </body>
+</html>

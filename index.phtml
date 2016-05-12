@@ -1,0 +1,278 @@
+ <?php echo $this->headMeta() ?>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, IE=8, IE=9, IE=10" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Grupo Toniato - Extranet" />
+        
+        <link href="<?php echo $this->baseUrl(); ?>/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo $this->baseUrl(); ?>/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo $this->baseUrl(); ?>/css/global.css" rel="stylesheet" type="text/css" />
+		
+		<link href="<?php echo $this->baseUrl(); ?>/css/component.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo $this->baseUrl(); ?>/css/normalize.css" rel="stylesheet" type="text/css" />
+		
+        <link rel="shortcut icon" href="<?php echo $this->baseUrl(); ?>/imagens/mobilusicon.png">
+								   
+        <script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-transition.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-alert.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-modal.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-dropdown.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-tab.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-tooltip.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-popover.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-button.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-collapse.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-carousel.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/bootstrap-typeahead.js"></script>
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/holder.js"></script>
+		
+		<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/js/modernizr.custom.js"></script>
+
+		<script>
+		  !function ($) {
+			$(function(){
+			  // carousel demo
+			  $('#myCarousel').carousel()
+			})
+		  }(window.jQuery)
+		</script>
+<script>
+
+	function servico(app_id){
+			
+			
+		if($('#inputLogin'+app_id).val().length <= 0){
+			$('#msg'+app_id).html('Campo de login não pode estar em branco!');
+			$('#msg'+app_id).addClass('alert alert-error');
+			return false;
+		}
+		
+		if($('#inputSenha'+app_id).val().length <= 0){
+			$('#msg'+app_id).html('Campo de senha não pode estar em branco!');
+			$('#msg'+app_id).addClass('alert alert-error');
+			return false;
+		}
+			
+		var link = $('#logar'+app_id).attr('link');
+		var login = $('#inputLogin'+app_id).val();
+		var senha = $('#inputSenha'+app_id).val();
+		
+		$.ajax({
+            url: link+"/servicos/autenticacaostore?usuario="+login+"&senha="+senha
+		}).done(function( msg ) {
+				
+			var obj = $.parseJSON(msg);
+				
+			if(obj['DescricaoRetorno'] == 'ERRO'){
+			$('#msg'+app_id).html('Usuario Invalido!');
+			$('#msg'+app_id).addClass('alert alert-error');
+			return false;
+		}
+				
+		if(obj['DescricaoRetorno'] == 'OK'){
+			$('#msg'+app_id).html('Usuario Autenticado!');
+			$('#msg'+app_id).addClass('alert alert-success');
+			$('#formLogin'+app_id).css( 'display', 'none' );
+			
+			window.location.replace("itms-services://?action=download-manifest&url=http://lalubema.servehttp.com/store/enterprise/TIM/Fan/fan.plist");
+			
+			return false;
+		}
+                
+		});
+		return false;
+	}
+	
+	
+</script>
+
+<!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+ <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="<?php echo $this->baseUrl(); ?>/imagens/cartaz-xuxa-mobiluspsd.png" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p class="lead"></p>
+             <a class="btn btn-large btn-success" href="#"></a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="<?php echo $this->baseUrl(); ?>/imagens/slide-02.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p class="lead"></p>
+         <a class="btn btn-large btn-success" href="/index"></a>
+            </div>
+          </div>
+        </div>
+		<div class="item">
+          <img src="<?php echo $this->baseUrl(); ?>/imagens/slide-01.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+             <h1></h1>
+              <p class="lead">.</p>
+              <a class="btn btn-large btn-success" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+	
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+	  			<ul class="stage clearfix">
+					
+					<?php foreach ($this->apps as $apps){?>
+					
+						<li class="scene">
+							<div class="movie" onclick="return true">
+								<div class="poster"></div>
+								<div class="info">
+									<h4 style="padding-left:15px;"><?php echo $apps['apps_nome']; ?></h4>
+									
+									<p>
+                                                                            <font style="float:right;padding-top:-9px;font-size:15px;font-style:italic;"><?php echo  substr($apps['apps_descricao'],0,170) . '...'; ?></font>
+										
+                                                                            
+									</p>
+									
+									<a data-toggle="modal" id="descricao" href="#myModal<?php echo $apps['apps_id'];?>" style="margin-left:10px;" class="btn btn-default btn-link">Ver Descrição</a>
+<!--                                                                        <a data-toggle="modal" id="descricao" href="<?php// echo $apps['apps_url'];?>" target="_blank" style="margin-left:10px;" class="btn btn-default btn-link"  >site</a>-->
+<!--                                                                        <img src="imagens/appstore.jpg" alt="Banca" data-toggle="modal" id="descricao" href="<?php //echo $apps['apps_url'];?>" target="_blank" style="margin-left:10px;" class="btn btn-default btn-link">-->
+                                                                        <a rel="home" href="<?php echo $apps['apps_url'];?>"><img class="logo_lalubema" height="10" width="35" src="<?php echo $this->baseUrl(); ?>/imagens/appstore.jpg" target="_blank"></a>
+<!--									<a data-toggle="modal" href="#logarmodal<?php // echo $apps['apps_id'];?>" class="btn btn-mini"><i class="icon-user"></i> Logar</a>-->
+								</div>
+							</div>
+                                                    
+						</li>
+					
+					<?php } ?>
+					
+				</ul>	  
+      
+      </div><!-- /.row -->
+
+	   <!-- Button trigger modal -->
+  
+
+  <?php foreach ($this->apps as $apps){?>
+	  
+	  <!-- Modal -->
+	  <div class="modal fade" style ="max-width:450px;display:none;" id="logarmodal<?php echo $apps['apps_id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  <h4 class="modal-title">Logar no <?php echo $apps['apps_nome'];?></h4>
+			</div>
+			<div class="modal-body">
+			  
+				<div id="msg<?php echo $apps['apps_id'];?>"></div>
+				
+				<form class="form-horizontal" id="formLogin<?php echo $apps['apps_id'];?>">
+				  <div class="control-group">
+					<label class="control-label" for="inputLogin">Login</label>
+					<div class="controls">
+					  <input type="text" id="inputLogin<?php echo $apps['apps_id'];?>" placeholder="Login">
+					</div>
+				  </div>
+				  <div class="control-group">
+					<label class="control-label" for="inputPassword">Senha</label>
+					<div class="controls">
+					  <input type="password" id="inputSenha<?php echo $apps['apps_id'];?>" placeholder="Senha">
+					</div>
+				</div>
+
+				</form>
+			  
+			</div>
+			<div class="modal-footer">
+				<button type="submit" id="logar<?php echo $apps['apps_id'];?>" link="<?php echo $apps['apps_url'];?>" onClick="servico(<?php echo $apps['apps_id'];?>)" class="btn btn-success">Logar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		  </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	  </div><!-- /.modal -->
+		
+	<?php } ?>		
+	  <br clear="all">
+	        
+      
+    </div><!-- /.container -->
+	
+	
+	<!-- Modal -->
+	<?php
+	$i = 0;
+	foreach ($this->apps as $apps){
+	$i = $i + 1;
+	?>
+
+	<style>
+		.scene:nth-child(<?php echo $i;?>) .movie .poster{
+			background-image:url(<?php echo $apps['apps_capa'];?>);
+		}
+	</style>	
+  
+	  <div class="modal fade" style ="display:none;" id="myModal<?php echo $apps['apps_id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  <h4 class="modal-title"><?php echo $apps['apps_nome'];?></h4>
+			</div>
+			<div class="modal-body">
+			  <h4>Descricao</h4>
+			  <p><?php echo $apps['apps_descricao'];?></p>
+			  
+			  <hr />
+			  
+				<div class="row">
+				    <?php 
+					$cont = 1;
+					foreach ($this->apps_imagens as $apps_imagens){
+					?>
+					
+						<?php if($apps['apps_id'] == $apps_imagens['apps_id']){?>
+							
+							<?php if($cont <= 3){?>
+													
+								<div class="span2">
+									<div class="thumbnail">
+									  <img src="<?php echo $apps_imagens['apps_imagens_url']; ?>" alt="">
+									</div>
+                                                                    
+								</div>
+								
+								<?php $cont = $cont +1;?>
+								
+							<?php } ?>
+							
+						<?php } ?>
+						
+					<?php } ?>
+                                    
+				</div>
+			</div>
+				
+			</div>
+                 
+			<div class="modal-footer">
+                          <a data-toggle="modal" id="descricao" href="<?php echo $apps['apps_url'];?>" target="_blank" style="margin-left:10px;" class="btn btn-default btn-link"  >site</a> 
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		  </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	  </div><!-- /.modal -->
+
+	<?php } ?>

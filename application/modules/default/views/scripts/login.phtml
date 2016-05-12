@@ -1,0 +1,93 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  *:focus {
+    outline: none;
+  }
+  body {
+    font-family: Arial;
+    background-color: #3498DB;
+    padding: 50px;
+  }
+  .login {
+    margin: 20px auto;
+    width: 300px;
+  }
+  .login-screen {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px
+  }
+
+  .app-title {
+    text-align: center;
+    color: #777;
+  }
+
+  .login-form {
+    text-align: center;
+  }
+  .control-group {
+    margin-bottom: 10px;
+  }
+
+  input {
+    text-align: left;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+  }
+
+  input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+  }
+
+  .login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 12px;
+  }
+</style>
+
+<script>
+  $('body').css("background", "#267C6B");
+</script>
+<?php 
+  //$viewParans = $this->msg[2];
+  //$viewParans instanceof Default_IndexController;
+?>
+<div class="login">
+  <div class="login-screen">
+    <div class="app-title">
+      <h1>Logar</h1>
+    </div>
+
+    <form class="form-2" method="Post" action="/index" style="background-color: white">
+      <div class="login-form">
+        <div class="control-group">
+          <input type="email" required="" name="p_email" class="login-field" value="<?php echo $viewParans->p_email ?>" placeholder="Login" id="login-name">
+          <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+
+        <div class="control-group">
+          <input type="password" required="" name="p_senha" class="login-field" value="<?php echo $viewParans->p_senha ?>" placeholder="Senha" id="login-pass">
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <input type="submit" class="btn button okay" href="#" value="Logar">
+        <a class="login-link" href="/esquecisenha">Esqueceu sua senha?</a>
+      </div>
+      <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']?>" name="p_paginaAtual" />
+    </form>
+  </div>
+
+</div>
